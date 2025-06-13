@@ -19,8 +19,11 @@ def main():
     index1 = 0
     index2 = 0
     ref = 0
-    with open("xkcd_ Good Science.mhtml","r") as file:
-        webpage = file.read()
+    try:
+        with open("xkcd_ Good Science.mhtml","r") as file:
+            webpage = file.read()
+    except FileNotFoundError:
+        print("Error, the html file was not found.")
 
     count = webpage.count("<a href=3D")
     text = webpage
