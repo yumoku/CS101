@@ -7,6 +7,11 @@
 # time travel).
 #
 def validate_input(year1, month1, day1, year2, month2, day2):
+    """
+    To validate if all the inputs are positive integer assuming that
+    you were not born in the same year as Jesus Christ, also checking
+    if you are a time traveller.
+    """
     args = [year1, month1, day1, year2, month2, day2]
     i = 0
     while i < len(args):
@@ -29,6 +34,9 @@ def validate_input(year1, month1, day1, year2, month2, day2):
     return
 
 def check_leap_year(year):
+    """
+    Check if a year is a leap year
+    """
     if year % 4 == 0 and year % 100 == 0 and year % 400 != 0:
         return False
     elif year % 4 == 0 and year % 100 == 0 and year % 400 == 0:
@@ -39,6 +47,10 @@ def check_leap_year(year):
         return False
 
 def check_days_per_month(year, month):
+    """
+    Given a year and moth, check if how many days are in
+    that month
+    """
     if month in [1,3,5,7,8,10,12]:
         return 31
     elif month in [4,6,9,11]:
@@ -49,6 +61,10 @@ def check_days_per_month(year, month):
         return 28
 
 def check_days_so_far(year, month, day):
+    """
+    Given a year and month and day, check how many days
+    since the beginning of that year
+    """
     i = 1
     days = 0
     while i < month:
@@ -58,9 +74,12 @@ def check_days_so_far(year, month, day):
     return days
 
 def daysBetweenDates(year1, month1, day1, year2, month2, day2):
-    ##
-    # Your code here.
-    ##
+    """
+    check the year differences and multiply by 365 and compensate with the number
+    of leap years between them, then check the month and day data of each input
+    to get the return of how many days from the beignning of that year in total
+    for that input and minus those two numbers to get the difference.
+    """
     validate_input(year1, month1, day1, year2, month2, day2)
     year = year1
     counter = 0
@@ -76,6 +95,11 @@ def daysBetweenDates(year1, month1, day1, year2, month2, day2):
 # Test routine
 
 def test():
+    """
+    Noticing Pycharm will force you install pytest when you
+    have a method called test(), thus using the default assert()
+    method for testing
+    """
     test_cases = [((2012,1,1,2012,2,30), 58),
                   ((2012,1,1,2012,3,1), 60),
                   ((2011,6,30,2012,6,30), 366),
