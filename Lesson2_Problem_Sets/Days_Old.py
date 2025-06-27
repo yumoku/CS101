@@ -9,8 +9,8 @@
 def validate_input(year1, month1, day1, year2, month2, day2):
     """
     To validate if all the inputs are positive integer assuming that
-    you were not born in the same year as Jesus Christ, also checking
-    if you are a time traveller.
+    you were not born in the same year as Jesus Christ or priori,
+    also checking if you are a time traveller.
     """
     args = [year1, month1, day1, year2, month2, day2]
     i = 0
@@ -37,14 +37,12 @@ def check_leap_year(year):
     """
     Check if a year is a leap year
     """
-    if year % 4 == 0 and year % 100 == 0 and year % 400 != 0:
-        return False
-    elif year % 4 == 0 and year % 100 == 0 and year % 400 == 0:
+    if year % 400 == 0:
         return True
-    elif year % 4 == 0 and year % 100 != 0:
-        return True
-    else:
+    if year % 100 == 0:
         return False
+    if year % 4 == 0:
+        return True
 
 def check_days_per_month(year, month):
     """
@@ -100,7 +98,7 @@ def test():
     have a method called test(), thus using the default assert()
     method for testing
     """
-    test_cases = [((2012,1,1,2012,2,30), 58),
+    test_cases = [((2012,1,1,2012,2,28), 58),
                   ((2012,1,1,2012,3,1), 60),
                   ((2011,6,30,2012,6,30), 366),
                   ((2011,1,1,2012,8,8), 585 ),
