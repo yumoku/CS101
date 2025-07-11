@@ -13,7 +13,9 @@ def extract_link(text: str):
     begining = anchor + len('<a href="')
     end = text.find(target_sign,begining + 1)
     url = text[begining:end]
-
+    print(url)
+    if url[0] == "\"":
+        url = url[1:]
     return url, end
 
 def read_html_webpage(web_url):
@@ -23,13 +25,14 @@ def read_html_webpage(web_url):
     adjust the protocol-relative URL
     """
     source = requests.get(web_url).text
+    # print(source)
     # some links are using protocol-relative URLs
     # such as //c.xkcd.com/random/comic/
     # need to convert its format
     source = source.replace('href="//c.', 'href="https://c.')
     # some links are relative links
     # need to convert to absolute links
-    source = source.replace('href="/', 'href="https://www.xkcd.com/')
+    source = source.replace('href="/', f'href="{web_url}')
     return source
 
 def extract_links_from_single_webpage(web_url):
@@ -50,12 +53,12 @@ def extract_links_from_single_webpage(web_url):
     return extracted_urls
 
 def main():
-    webpage = "https://xkcd.com/"
+    webpage = "https://crawler-test.com/"
     url = None
     urls = []
 
     urls = extract_links_from_single_webpage(webpage)
-    print(urls)
+    # print(urls)
 
 if __name__ == "__main__":
     main()
