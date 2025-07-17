@@ -8,11 +8,10 @@ def crawl_web(web_url: str):
     crawled.append(web_url)
     for item in to_crawl:
         if item not in crawled:
-            # print(item)
             candidates = extract_links_from_single_webpage(item)
-
+            print("to_crawl is: ", to_crawl)
             for candidate in candidates:
-                if candidate not in crawled:
+                if candidate not in crawled and candidate not in to_crawl:
                     to_crawl.append(candidate)
             crawled.append(item)
 

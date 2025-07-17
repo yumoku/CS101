@@ -13,7 +13,6 @@ def extract_link(text: str):
     begining = anchor + len('<a href="')
     end = text.find(target_sign,begining + 1)
     url = text[begining:end]
-    print(url)
     if url[0] == "\"":
         url = url[1:]
     return url, end
