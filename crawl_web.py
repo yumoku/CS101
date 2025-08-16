@@ -4,8 +4,8 @@ def crawl_web(web_url: str):
     to_crawl = []
     crawled = []
 
-    to_crawl = extract_links_from_single_webpage(web_url)
     crawled.append(web_url)
+    to_crawl = extract_links_from_single_webpage(web_url)
     for item in to_crawl:
         if item not in crawled:
             candidates = extract_links_from_single_webpage(item)
@@ -19,7 +19,7 @@ def crawl_web(web_url: str):
 
 def main():
     all_urls = []
-    all_urls = crawl_web("https://crawler-test.com/")
+    all_urls = crawl_web('https://xkcd.com/')
     # print(all_urls)
 
 if __name__ == "__main__":

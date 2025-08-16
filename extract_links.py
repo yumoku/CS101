@@ -1,3 +1,5 @@
+from enum import verify
+
 import requests
 
 def extract_link(text: str):
@@ -23,7 +25,9 @@ def read_html_webpage(web_url):
     the link url to absolute link url, also
     adjust the protocol-relative URL
     """
-    source = requests.get(web_url).text
+    session = requests.Session()
+    session.max_redirects = 45
+    source = session.get(web_url, verify=False).text
     # print(source)
     # some links are using protocol-relative URLs
     # such as //c.xkcd.com/random/comic/
