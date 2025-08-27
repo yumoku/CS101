@@ -20,7 +20,7 @@ def crawl_web(web_url: str):
 
 def main():
     all_urls = []
-    all_urls = crawl_web('http://www.xkcd.com')
+    all_urls = crawl_web('https://www.educative.io/')
     print(all_urls)
 
 if __name__ == "__main__":

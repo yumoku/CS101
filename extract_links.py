@@ -76,7 +76,7 @@ def extract_links_from_single_webpage(web_url):
     return extracted_urls
 
 def main():
-    webpage = "http://www.xkcd.com"
+    webpage = "http://www.redhat.com"
     url = None
     urls = []
 
