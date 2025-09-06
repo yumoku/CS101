@@ -104,15 +104,6 @@ def check_sudoku(input_numbers):
 
     return True
 
-
-
-
-
-
-
-
-
-
 print (check_sudoku(incorrect))
 # >>> False
 

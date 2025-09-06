@@ -19,3 +19,4 @@ def product_list(input: list[int]):
 
 print (product_list([]))
 #>>> 1
+
