@@ -10,8 +10,8 @@ list2.append(5)
 
 # to check, you can print them out using the print statements below.
 
-print (list1)
-print (list2)
+# print (list1)
+# print (list2)
 
 # What is the difference between these two pieces of code?
 
@@ -24,9 +24,9 @@ def proc2(mylist):
 # Can you explain the results given by the four print statements below? Remove
 # the hashes # and run the code to check.
 
-print (list1)
-proc(list1)
-print (list1)
+# print (list1)
+# proc(list1)
+# print (list1)
 
 #print list2
 #proc2(list2)
@@ -54,9 +54,11 @@ list3 += [7,8,9]
 # second to include the entries 'a', 'b', 'c' and finally the last list should
 # not be mutated but a copy should be returned with the additional entry 'w'.
 
-def list_test():
+def list_test(list1, list2, list3):
     # Your code here
-    pass # replace this line with your code
+    list1 += 'a'
+    list2 += ['a','b', 'c']
+    return list3 + ['w']
 
 
 
@@ -64,12 +66,12 @@ first_input = [1,2,3]
 second_input = [4,5,6]
 third_input = [7,8,9]
 
-#print list_test(first_input, second_input, third_input)
+print (list_test(first_input, second_input, third_input))
 #>>> [7,8,9,'w']
-#print first_input
+print (first_input)
 #>>> [1,2,3,'a']
-#print second_input
+print (second_input)
 #>>> [4,5,6,'a','b','c']
-#print third_input
+print (third_input)
 #>>> [7,8,9]
 
